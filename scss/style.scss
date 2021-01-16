@@ -1,7 +1,4 @@
-$primary_color: rgba(13,110,139,0.75);
-$secondary_color:rgba(229,148,0,0.9);
-$overlay_color: rgba(24,39,51,0.85);
-$menu_speed: 0.75s;
+@import 'variables';
 
 *{
     margin:0;

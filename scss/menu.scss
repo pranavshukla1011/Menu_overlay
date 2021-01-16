@@ -1,6 +1,77 @@
-.menu_wrap{
+@import 'variables';
+
+.menu-wrap{
     position:fixed;
     top:0;
     left:0;
     z-index:1;
+
+    & .toggle-btn{
+        z-index:2;
+        position:absolute;
+        top:0;
+        left:0;
+        width:50px;
+        height:50px;
+        opacity:0;
+        cursor:pointer;
+        
+    }
+
+    & .menuoverlay{
+        z-index:1;
+        position:absolute;
+        top:0;
+        left:0;
+        width:60px;
+        height:60px;
+        padding:1rem;
+        background:$primary_color;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+
+        & > div{
+            position: relative;
+            z-index:1;
+            flex: none;
+            width:100%;
+            height:2px;
+            background:#fff;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            transition: all 0.4s eaze-in-out;
+
+            &:before, &:after{
+                content:'';
+                position:absolute;
+                z-index:1;
+                width:100%;
+                height:2px;
+                background: inherit;
+                
+            }
+
+            &:before{
+                top:-10px;
+            }
+
+            &:after{
+                top:10px;
+            }
+        }
+    }
+
+    /*Animations*/
+    .toggle-btn:checked + .menuoverlay > div{
+        transform: rotate(135deg);
+    }
+
+    .toggle-btn:checked + .menuoverlay > div:before , .toggle-btn:checked + .menuoverlay > div:after {
+        top:0;
+        transform:rotate(90deg);
+    }
 }
+
+    
