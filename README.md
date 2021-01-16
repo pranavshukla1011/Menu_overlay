@@ -1,3 +1,3 @@
 # Menu_overlay
-Overlay Menu Layout
+Overlay Menu Layout of Hamburgur type.
 
