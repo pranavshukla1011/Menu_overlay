@@ -41,7 +41,7 @@
             display: flex;
             align-items: center;
             justify-content:center;
-            transition: all 0.4s eaze-in-out;
+            transition: all 0.4s ease-in-out;
 
             &:before, &:after{
                 content:'';
@@ -63,15 +63,83 @@
         }
     }
 
-    /*Animations*/
     .toggle-btn:checked + .menuoverlay > div{
         transform: rotate(135deg);
+
+        &:before , &:after {
+            top:0;
+            transform:rotate(90deg);
+        }
+
+      
     }
 
-    .toggle-btn:checked + .menuoverlay > div:before , .toggle-btn:checked + .menuoverlay > div:after {
-        top:0;
-        transform:rotate(90deg);
+    .toggle-btn:checked:hover + .menuoverlay > div{
+        transform:rotate(225deg);
+    }
+}
+.menu-wrap .menu-content{
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    visibility:hidden;
+    overflow:hidden;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    
+    & > div {
+        background-color: $overlay-color;
+        width:200vw;
+        height:200vh;
+        display:flex;
+        flex:none;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: all 0.4s ease;
+        border-radius: 50%;
+
+        & > div{
+            text-align: center;
+            max-width: 90vw;
+            max-height: 100vh;
+            opacity:0;
+            transition: opacity 0.4s ease;
+
+            & > ul > li{
+                list-style-type: none;
+                color: #fff;
+                font-size: 1.5rem;
+                padding: 1.5rem;
+                & a{
+                    color:#fff;
+                    text-decoration: none;
+                    transition: color 0.4s ease;
+                    &:hover{
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.menu-wrap .toggle-btn:checked ~ .menu-content{
+    visibility: visible;
+
+    & > div{
+        transform: scale(1);
+        transition-duration: $menu-speed;
+
+        & > div{
+            opacity:1;
+            transition: opacity 0.4s ease 0.4s;
+        }
     }
 }
 
-    
+

@@ -2,8 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
-  /*Animations*/ }
+  z-index: 1; }
   .menu-wrap .toggle-btn {
     z-index: 2;
     position: absolute;
@@ -35,7 +34,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.4s eaze-in-out; }
+      transition: all 0.4s ease-in-out; }
       .menu-wrap .menuoverlay > div:before, .menu-wrap .menuoverlay > div:after {
         content: '';
         position: absolute;
@@ -49,6 +48,57 @@
         top: 10px; }
   .menu-wrap .toggle-btn:checked + .menuoverlay > div {
     transform: rotate(135deg); }
-  .menu-wrap .toggle-btn:checked + .menuoverlay > div:before, .menu-wrap .toggle-btn:checked + .menuoverlay > div:after {
-    top: 0;
-    transform: rotate(90deg); }
+    .menu-wrap .toggle-btn:checked + .menuoverlay > div:before, .menu-wrap .toggle-btn:checked + .menuoverlay > div:after {
+      top: 0;
+      transform: rotate(90deg); }
+  .menu-wrap .toggle-btn:checked:hover + .menuoverlay > div {
+    transform: rotate(225deg); }
+
+.menu-wrap .menu-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .menu-wrap .menu-content > div {
+    background-color: rgba(24, 39, 51, 0.95);
+    width: 200vw;
+    height: 200vh;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+    border-radius: 50%; }
+    .menu-wrap .menu-content > div > div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease; }
+      .menu-wrap .menu-content > div > div > ul > li {
+        list-style-type: none;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 1.5rem; }
+        .menu-wrap .menu-content > div > div > ul > li a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.4s ease; }
+          .menu-wrap .menu-content > div > div > ul > li a:hover {
+            color: rgba(229, 148, 0, 0.9); }
+
+.menu-wrap .toggle-btn:checked ~ .menu-content {
+  visibility: visible; }
+  .menu-wrap .toggle-btn:checked ~ .menu-content > div {
+    transform: scale(1);
+    transition-duration: 0.75s; }
+    .menu-wrap .toggle-btn:checked ~ .menu-content > div > div {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.4s; }
